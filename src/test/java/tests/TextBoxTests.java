@@ -10,10 +10,6 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class TextBoxTests {
 
-/*    static {
-        Configuration.pageLoadStrategy = "eager";
-    }*/
-
     @BeforeAll
     static void beforeAll() {
         Configuration.pageLoadStrategy = "eager";
