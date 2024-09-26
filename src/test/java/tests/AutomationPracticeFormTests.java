@@ -1,26 +1,19 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class AutomationPracticeFormTests {
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 5000; //default 4000
-    }
+public class AutomationPracticeFormTests extends TestBase{
 
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
 
         $("#firstName").setValue("Olga");
         $("#lastName").setValue("Ivanova");
@@ -57,6 +50,6 @@ public class AutomationPracticeFormTests {
         $(".modal-body").shouldHave(text("Some Current Address"));
         $(".modal-body").shouldHave(text("Rajasthan Jaiselmer"));
 
-        $("#closeLargeModal").click();
+//        $("#closeLargeModal").click();
     }
 }
