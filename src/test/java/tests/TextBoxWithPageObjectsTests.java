@@ -2,10 +2,13 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.TextBox;
+import pages.components.ResultTable;
 
 public class TextBoxWithPageObjectsTests extends TestBase{
 
     TextBox textBox = new TextBox();
+    ResultTable resultTable = new ResultTable();
+
     @Test
     void fillFormTest() {
         textBox.openPage()
@@ -15,9 +18,9 @@ public class TextBoxWithPageObjectsTests extends TestBase{
                 .setPermanentAddress("Another street 1")
                 .setSubmit();
 
-        textBox.checkResult("Ivan")
-                .checkResult("avanco@inc.com")
-                .checkResult("Some street 1")
-                .checkResult("Another street 1");
+        resultTable.checkResult("Ivan")
+        .checkResult("avanco@inc.com")
+        .checkResult("Some street 1")
+        .checkResult("Another street 1");
     }
 }

@@ -3,7 +3,6 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 
-import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -115,21 +114,6 @@ public class AutomationPracticeForm {
 
     public AutomationPracticeForm setSubmit() {
         submitInput.scrollTo().click();
-
-        return this;
-    }
-
-    public void checkSuccess() {
-        exampleModalInput.shouldHave(text("Thanks for submitting the form"));
-    }
-
-    public void checkNotSuccess() {
-        bodyInput.shouldNotHave(cssClass(".modal-open"));
-    }
-
-    public AutomationPracticeForm checkResult(String key, String value) {
-        $(".table-responsive").$(byText(key)).parent()
-                .shouldHave(text(value));
 
         return this;
     }

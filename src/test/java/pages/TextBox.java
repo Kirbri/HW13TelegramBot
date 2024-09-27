@@ -48,9 +48,4 @@ public class TextBox {
     public void setSubmit(){
         submitInput.click();
     }
-
-    public TextBox checkResult(String value) {
-        $("#output").shouldHave(text(value));
-        return this;
-    }
 }
