@@ -67,9 +67,9 @@ public class AutomationPracticeForm {
         return this;
     }
 
-    public AutomationPracticeForm setDateOfBirth(String day, String month, String year) {
+    public AutomationPracticeForm setDateOfBirth(String[] date) {
         calendarInput.click();
-        calendarComponent.setDate(day, month, year);
+        calendarComponent.setDate(date[0], date[1], date[2]);
 
         return this;
     }
