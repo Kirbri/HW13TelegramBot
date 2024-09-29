@@ -1,20 +1,22 @@
 package tests;
 
-import static utils.RandomUtils.*;
+import utils.RandomUtils;
 
 public class TestData {
 
-    public static String firstName = getRandomFirstName(),
-            lastName = getRandomLastName(),
-            userEmail = getRandomEmail(),
-            gender = getRandomGender(),
-            userNumber = getRandomUserNumber(),
-            subjects = getRandomSubjects(),
-            hobbies = getRandomHobbies(),
-            picture = getRandomPicture(),
-            currentAddressInput = getRandomCurrentAddressInput(),
-            state = getRandomState(),
-            city = getRandomCity(state);
-    public static String[] dateOfBirth = getRandomDateOfBirth();
+    RandomUtils randomUtils = new RandomUtils();
+
+    public String firstName = randomUtils.getRandomFirstName(),
+            lastName = randomUtils.getRandomLastName(),
+            userEmail = randomUtils.getRandomEmail(),
+            gender = randomUtils.getRandomGender(),
+            userNumber = randomUtils.getRandomUserNumber(),
+            subjects = randomUtils.getRandomSubjects(),
+            hobbies = randomUtils.getRandomHobbies(),
+            picture = randomUtils.getRandomPicture(),
+            currentAddressInput = randomUtils.getRandomCurrentAddressInput(),
+            state = randomUtils.getRandomState(),
+            city = randomUtils.getRandomCity(state);
+    public String[] dateOfBirth = randomUtils.getRandomDateOfBirth();
 
 }

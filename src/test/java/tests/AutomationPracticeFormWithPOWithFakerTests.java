@@ -7,8 +7,6 @@ import pages.components.ResultTable;
 import java.util.Calendar;
 import java.util.Locale;
 
-import static tests.TestData.*;
-
 public class AutomationPracticeFormWithPOWithFakerTests extends TestBase {
 
     Calendar calendar = Calendar.getInstance();
@@ -19,36 +17,37 @@ public class AutomationPracticeFormWithPOWithFakerTests extends TestBase {
 
     AutomationPracticeForm automationPracticeForm = new AutomationPracticeForm();
     ResultTable resultTable = new ResultTable();
+    TestData testData = new TestData();
 
     @Test
     void fillFormSuccessTest() {
         automationPracticeForm.openPage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(userEmail)
-                .setGender(gender)
-                .setUserNumber(userNumber)
-                .setDateOfBirth(dateOfBirth)
-                .setSubjects(subjects)
-                .setHobbies(hobbies)
-                .setPicture(picture)
-                .setCurrentAddressInput(currentAddressInput)
-                .setState(state)
-                .setCity(city)
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setEmail(testData.userEmail)
+                .setGender(testData.gender)
+                .setUserNumber(testData.userNumber)
+                .setDateOfBirth(testData.dateOfBirth)
+                .setSubjects(testData.subjects)
+                .setHobbies(testData.hobbies)
+                .setPicture(testData.picture)
+                .setCurrentAddressInput(testData.currentAddressInput)
+                .setState(testData.state)
+                .setCity(testData.city)
                 .setSubmit();
 
         resultTable.checkSuccess();
 
-        resultTable.checkResult("Student Name", firstName + " " + lastName)
-                .checkResult("Student Email", userEmail)
-                .checkResult("Gender", gender)
-                .checkResult("Mobile", userNumber)
-                .checkResult("Date of Birth", dateOfBirth[0] + " " + dateOfBirth[1] + "," + dateOfBirth[2])
-                .checkResult("Subjects", subjects)
-                .checkResult("Hobbies", hobbies)
-                .checkResult("Picture", picture.split("/")[1])
-                .checkResult("Address", currentAddressInput)
-                .checkResult("State and City", state + " " + city);
+        resultTable.checkResult("Student Name", testData.firstName + " " + testData.lastName)
+                .checkResult("Student Email", testData.userEmail)
+                .checkResult("Gender", testData.gender)
+                .checkResult("Mobile", testData.userNumber)
+                .checkResult("Date of Birth", testData.dateOfBirth[0] + " " + testData.dateOfBirth[1] + "," + testData.dateOfBirth[2])
+                .checkResult("Subjects", testData.subjects)
+                .checkResult("Hobbies", testData.hobbies)
+                .checkResult("Picture", testData.picture.split("/")[1])
+                .checkResult("Address", testData.currentAddressInput)
+                .checkResult("State and City", testData.state + " " + testData.city);
 
         automationPracticeForm.setClose();
     }
@@ -56,17 +55,17 @@ public class AutomationPracticeFormWithPOWithFakerTests extends TestBase {
     @Test
     void fillMinimumFormSuccessTest() {
         automationPracticeForm.openPage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setGender(gender)
-                .setUserNumber(userNumber)
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setGender(testData.gender)
+                .setUserNumber(testData.userNumber)
                 .setSubmit();
 
         resultTable.checkSuccess();
 
-        resultTable.checkResult("Student Name", firstName + " " + lastName)
-                .checkResult("Gender", gender)
-                .checkResult("Mobile", userNumber)
+        resultTable.checkResult("Student Name", testData.firstName + " " + testData.lastName)
+                .checkResult("Gender", testData.gender)
+                .checkResult("Mobile", testData.userNumber)
                 .checkResult("Date of Birth", date + " " + month + "," + year);
 
         automationPracticeForm.setClose();
@@ -75,18 +74,18 @@ public class AutomationPracticeFormWithPOWithFakerTests extends TestBase {
     @Test
     void fillFormWhenEmailFaledTest() {
         automationPracticeForm.openPage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(firstName + lastName)
-                .setGender(gender)
-                .setUserNumber(userNumber)
-                .setDateOfBirth(dateOfBirth)
-                .setSubjects(subjects)
-                .setHobbies(hobbies)
-                .setPicture(picture)
-                .setCurrentAddressInput(currentAddressInput)
-                .setState(state)
-                .setCity(city)
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setEmail(testData.firstName + testData.lastName)
+                .setGender(testData.gender)
+                .setUserNumber(testData.userNumber)
+                .setDateOfBirth(testData.dateOfBirth)
+                .setSubjects(testData.subjects)
+                .setHobbies(testData.hobbies)
+                .setPicture(testData.picture)
+                .setCurrentAddressInput(testData.currentAddressInput)
+                .setState(testData.state)
+                .setCity(testData.city)
                 .setSubmit();
 
         resultTable.checkNotSuccess();
