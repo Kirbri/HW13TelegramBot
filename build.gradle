@@ -66,6 +66,14 @@ task automation_practice(type: Test) {
     }
 }
 
+task simple_three_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("skipped")
+        includeTags("negative")
+        includeTags("positive")
+    }
+}
+
 test {
     useJUnitPlatform()
 }
