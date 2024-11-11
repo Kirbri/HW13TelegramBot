@@ -60,7 +60,7 @@ task demoqa_test(type: Test) {
     }
 }
 
-task demoqa_test(type: Test) {
+task automation_practice(type: Test) {
     useJUnitPlatform {
         includeTags("automationPracticeForm")
     }
