@@ -39,6 +39,7 @@ dependencies {
 
 tasks.withType(Test) {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
 
     testLogging {
         lifecycle {
@@ -74,6 +75,20 @@ task simple_three_test(type: Test) {
     }
 }
 
-test {
-    useJUnitPlatform()
+task remote_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("remote")
+    }
+}
+
+task property_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("property")
+    }
+}
+
+task hello_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("hello")
+    }
 }
