@@ -42,6 +42,7 @@ public class SystemPropertiesTests {
         String browser = System.getProperty("browser", "mozilla");
 
         System.out.println(browser);
+        System.out.println(System.getProperties());
         // gradle property_test
         // mozilla
 
@@ -56,6 +57,7 @@ public class SystemPropertiesTests {
         String message = format("Hello, %s!", name);
 
         System.out.println(message);
+        System.out.println(System.getProperties());
         // gradle hello_test
         // Hello, default student!
 
