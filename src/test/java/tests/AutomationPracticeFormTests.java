@@ -61,10 +61,10 @@ public class AutomationPracticeFormTests extends TestBase{
                     $(".modal-body").scrollTo().shouldHave(text("reception.png"));
                     $(".modal-body").scrollTo().shouldHave(text("Some Current Address"));
                     $(".modal-body").scrollTo().shouldHave(text("Rajasthan Jaiselmer"));
-
+                    executeJavaScript("$('[id^='google_ads_iframe_']').remove()");
                 });
+
         step("Закрываем форму с регистрационными данными", () -> {
-            executeJavaScript("$('[id^='google_ads_iframe_']').remove()");
             $("#closeLargeModal").scrollTo().click();
         });
     }
