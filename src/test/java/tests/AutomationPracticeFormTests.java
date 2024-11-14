@@ -63,7 +63,5 @@ public class AutomationPracticeFormTests extends TestBase{
                     $(".modal-body").scrollTo().shouldHave(text("Rajasthan Jaiselmer"));
 
                 });
-        step("Закрываем форму с регистрационными данными", () ->
-                $("#closeLargeModal").scrollTo().click());
     }
 }
