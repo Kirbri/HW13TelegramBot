@@ -15,13 +15,12 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.browserSize = System.getProperty("browserSize");
-        Configuration.browserVersion = System.getProperty("browserVersion");
-        Configuration.browser = System.getProperty("browser");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        Configuration.browserVersion = System.getProperty("browserVersion", "130");
+        Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.timeout = 10000;
-        Configuration.remote = "https://user1:1234@" + System.getProperty("url") + "/wd/hub";
+        Configuration.remote = "https://user1:1234@" + System.getProperty("url", "selenoid.autotests.cloud") + "/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
