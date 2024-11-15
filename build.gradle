@@ -35,6 +35,7 @@ dependencies {
             "com.github.javafaker:javafaker:$javafakerVersion",
             "org.slf4j:slf4j-simple:$slf4jVersion"
     )
+    implementation 'org.seleniumhq.selenium:selenium-java:4.26.0'
 }
 
 tasks.withType(Test) {
