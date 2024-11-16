@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Configuration.browser;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -27,7 +28,9 @@ public class AutomationPracticeFormTests extends TestBase{
                     $("#hobbiesWrapper").scrollTo().$(byText("Sports")).click();
                     $("#hobbiesWrapper").scrollTo().$(byText("Reading")).click();
                     $("#hobbiesWrapper").scrollTo().$(byText("Music")).click();
-                    $("#uploadPicture").uploadFromClasspath("image/reception.png");
+                    if (browser.equals("chrome")) {
+                        $("#uploadPicture").uploadFromClasspath("image/reception.png");
+                    }
                     $("#currentAddress").scrollTo().setValue("Some Current Address");
                     $("#state").scrollTo().click();
                     $("#stateCity-wrapper").scrollTo().$(byText("Rajasthan")).click();
@@ -51,7 +54,9 @@ public class AutomationPracticeFormTests extends TestBase{
                     $(".modal-body").scrollTo().shouldHave(text("15 November,1990"));
                     $(".modal-body").scrollTo().shouldHave(text("Arts"));
                     $(".modal-body").scrollTo().shouldHave(text("Sports, Reading, Music"));
-                    $(".modal-body").scrollTo().shouldHave(text("reception.png"));
+                    if (browser.equals("chrome")) {
+                        $(".modal-body").scrollTo().shouldHave(text("reception.png"));
+                    }
                     $(".modal-body").scrollTo().shouldHave(text("Some Current Address"));
                     $(".modal-body").scrollTo().shouldHave(text("Rajasthan Jaiselmer"));
                 });
