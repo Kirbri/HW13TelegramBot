@@ -46,7 +46,7 @@ public class AutomationPracticeFormTests extends TestBase{
                 });
 
         step("Проверка корректности данных", () -> {
-                    executeJavaScript("$('iframe').remove()");
+                    executeJavaScript("$('[data-anchor-status=\"displayed\"]').remove()");
                     $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
                     $(".modal-body").scrollTo().shouldHave(text("Olga Ivanova"));
                     $(".modal-body").scrollTo().shouldHave(text("dfsdj@dsfsd.dsfsd"));
