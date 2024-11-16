@@ -47,6 +47,7 @@ public class TestBase {
         step("Удаление баннеров рекламы", () -> {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#RightSide_Advertisement').remove()");
         });
     }
 
