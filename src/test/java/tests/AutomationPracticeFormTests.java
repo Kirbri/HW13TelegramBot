@@ -46,6 +46,7 @@ public class AutomationPracticeFormTests extends TestBase{
                 });
 
         step("Проверка корректности данных", () -> {
+                    executeJavaScript("$('gpt_unit_/21849154601,22343295815/Ad.Plus-300x250_1').remove()");
                     $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
                     $(".modal-body").scrollTo().shouldHave(text("Olga Ivanova"));
                     $(".modal-body").scrollTo().shouldHave(text("dfsdj@dsfsd.dsfsd"));
