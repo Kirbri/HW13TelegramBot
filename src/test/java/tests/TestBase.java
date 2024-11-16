@@ -13,6 +13,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.Map;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Configuration.browser;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
@@ -57,7 +58,9 @@ public class TestBase {
     @AfterEach
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
+        if (browser.equals("chrome")) {
+            Attach.pageSource();
+        }
         Attach.browserConsoleLogs();
         Attach.addVideo();
     }
