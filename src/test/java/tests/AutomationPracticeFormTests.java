@@ -27,7 +27,7 @@ public class AutomationPracticeFormTests extends TestBase{
                     $("#hobbiesWrapper").scrollTo().$(byText("Sports")).click();
                     $("#hobbiesWrapper").scrollTo().$(byText("Reading")).click();
                     $("#hobbiesWrapper").scrollTo().$(byText("Music")).click();
-                    $("#uploadPicture").scrollTo().uploadFromClasspath("image/reception.png");
+                    $("#uploadPicture").uploadFromClasspath("image/reception.png");
                     $("#currentAddress").scrollTo().setValue("Some Current Address");
                     $("#state").scrollTo().click();
                     $("#stateCity-wrapper").scrollTo().$(byText("Rajasthan")).click();
