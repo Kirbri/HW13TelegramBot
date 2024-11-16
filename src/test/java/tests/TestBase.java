@@ -7,9 +7,12 @@ import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
+
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class TestBase {
 
@@ -29,6 +32,12 @@ public class TestBase {
         Configuration.browserCapabilities = capabilities;
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
+
+    @BeforeEach
+    void beforeEach() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
     }
 
     @AfterEach

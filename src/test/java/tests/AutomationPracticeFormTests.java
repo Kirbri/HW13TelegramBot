@@ -20,8 +20,6 @@ public class AutomationPracticeFormTests extends TestBase{
         step("Открываем главную страницу", () -> {
                     open("/automation-practice-form");
                     $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-                    executeJavaScript("$('#fixedban').remove()");
-                    executeJavaScript("$('footer').remove()");
         });
 
         step("Заполняем данные формы", () -> {
@@ -46,7 +44,7 @@ public class AutomationPracticeFormTests extends TestBase{
                     $(".react-datepicker__month-select").sendKeys("November");
                     $(".react-datepicker__day--015").click();
 
-            $("#submit").scrollTo().click();
+                    $("#submit").scrollTo().click();
                 });
 
         step("Проверяем корректность данных", () -> {
@@ -61,7 +59,6 @@ public class AutomationPracticeFormTests extends TestBase{
                     $(".modal-body").scrollTo().shouldHave(text("reception.png"));
                     $(".modal-body").scrollTo().shouldHave(text("Some Current Address"));
                     $(".modal-body").scrollTo().shouldHave(text("Rajasthan Jaiselmer"));
-                    //executeJavaScript("$('[id^='google_ads_iframe_']').remove()");
                 });
 
         step("Закрываем форму с регистрационными данными", () -> {
