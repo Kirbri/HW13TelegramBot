@@ -12,7 +12,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
 
-import static com.codeborne.selenide.Selenide.executeJavaScript;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.*;
+import static io.qameta.allure.Allure.step;
 
 public class TestBase {
 
@@ -36,8 +38,15 @@ public class TestBase {
 
     @BeforeEach
     void beforeEach() {
+        step("Открытие главной страницы", () -> {
+            open("/automation-practice-form");
+            $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+        });
+
+        step("Удаление баннеров рекламы", () -> {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
+        });
     }
 
     @AfterEach

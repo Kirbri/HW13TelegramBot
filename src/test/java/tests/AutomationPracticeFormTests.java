@@ -17,12 +17,7 @@ public class AutomationPracticeFormTests extends TestBase{
     void fillFormTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
-        step("Открываем главную страницу", () -> {
-                    open("/automation-practice-form");
-                    $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        });
-
-        step("Заполняем данные формы", () -> {
+        step("Заполнение данных", () -> {
                     $("#firstName").scrollTo().setValue("Olga");
                     $("#lastName").scrollTo().setValue("Ivanova");
                     $("#userEmail").scrollTo().setValue("dfsdj@dsfsd.dsfsd");
@@ -47,7 +42,7 @@ public class AutomationPracticeFormTests extends TestBase{
                     $("#submit").scrollTo().click();
                 });
 
-        step("Проверяем корректность данных", () -> {
+        step("Проверка корректности данных", () -> {
                     $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
                     $(".modal-body").scrollTo().shouldHave(text("Olga Ivanova"));
                     $(".modal-body").scrollTo().shouldHave(text("dfsdj@dsfsd.dsfsd"));
@@ -61,7 +56,7 @@ public class AutomationPracticeFormTests extends TestBase{
                     $(".modal-body").scrollTo().shouldHave(text("Rajasthan Jaiselmer"));
                 });
 
-        step("Закрываем форму с регистрационными данными", () -> {
+        step("Закрытие формы регистрации", () -> {
             $("#closeLargeModal").scrollTo().click();
         });
     }
