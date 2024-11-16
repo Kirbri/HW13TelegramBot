@@ -48,6 +48,8 @@ public class TestBase {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#RightSide_Advertisement').remove()");
+        executeJavaScript("$('[data-anchor-status=\"displayed\"]').remove()");
+        executeJavaScript("$('iframe').remove()");
         });
     }
 
