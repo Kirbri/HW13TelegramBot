@@ -42,11 +42,12 @@ public class AutomationPracticeFormTests extends TestBase{
                     $(".react-datepicker__month-select").sendKeys("November");
                     $(".react-datepicker__day--015").click();
 
+                    executeJavaScript("$('[data-anchor-status='displayed']').remove()");
                     $("#submit").scrollTo().click();
                 });
 
         step("Проверка корректности данных", () -> {
-                    executeJavaScript("$('[data-anchor-status='displayed']').remove()");
+                    
                     //executeJavaScript("$('#gpt_unit_/21849154601,22343295815/Ad.Plus-300x250_1').remove()");
                     $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
                     $(".modal-body").scrollTo().shouldHave(text("Olga Ivanova"));
