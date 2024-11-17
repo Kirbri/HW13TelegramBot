@@ -55,3 +55,9 @@ task parametrized_test(type: Test) {
         includeTags("automationPracticeForm")
     }
 }
+
+task simple_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("simple")
+    }
+}
