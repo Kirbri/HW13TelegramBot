@@ -62,9 +62,9 @@ public class TestBase {
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
-        if (browser.equals("chrome")) {
+//        if (browser.equals("chrome")) {
             Attach.browserConsoleLogs();
-        }
+//        }
         Attach.addVideo();
     }
 }
