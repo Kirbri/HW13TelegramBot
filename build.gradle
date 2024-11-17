@@ -50,46 +50,8 @@ tasks.withType(Test) {
     }
 }
 
-task simple_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("simple")
-    }
-}
-
-task demoqa_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("demoqa")
-    }
-}
-
-task automation_practice(type: Test) {
+task parametrized_test(type: Test) {
     useJUnitPlatform {
         includeTags("automationPracticeForm")
-    }
-}
-
-task simple_three_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("skipped")
-        includeTags("negative")
-        includeTags("positive")
-    }
-}
-
-task remote_test(type: Test) {
-    useJUnitPlatform{
-        includeTags("remote")
-    }
-}
-
-task property_test(type: Test) {
-    useJUnitPlatform{
-        includeTags("property")
-    }
-}
-
-task hello_test(type: Test) {
-    useJUnitPlatform{
-        includeTags("hello")
     }
 }

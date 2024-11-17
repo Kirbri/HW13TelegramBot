@@ -45,11 +45,11 @@ public class TestBase {
         });
 
         step("Удаление баннеров рекламы", () -> {
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
-        executeJavaScript("$('#RightSide_Advertisement').remove()");
-        executeJavaScript("$('[data-anchor-status=\"displayed\"]').remove()");
-        executeJavaScript("$('iframe').remove()");
+            executeJavaScript("$('#fixedban').remove()");
+            executeJavaScript("$('footer').remove()");
+            executeJavaScript("$('#RightSide_Advertisement').remove()");
+            executeJavaScript("$('[data-anchor-status=\"displayed\"]').remove()");
+            executeJavaScript("$('iframe').remove()");
         });
     }
 
@@ -63,7 +63,6 @@ public class TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         if (browser.equals("chrome")) {
-
             Attach.browserConsoleLogs();
         }
         Attach.addVideo();
